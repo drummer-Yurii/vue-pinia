@@ -21,7 +21,9 @@ export const useUserStore = defineStore('users',{
     getters: {
         usersByName(state) {
             const sortable = [...state.users]
-            return sortable.sort((a, b) => a.name.localCompare(b.name))
+            return sortable.sort((a, b) => {
+                return a.name.localeCompare(b.name)
+            })
         }
     }
 })

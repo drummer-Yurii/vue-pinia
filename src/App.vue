@@ -33,9 +33,21 @@ const CreateUser = () => {
       <input type="submit" value="Create user">
     </form>
 
-    <div class="users">
+    <label><span>Sort</span><input type="checkbox" v-model="sort" /></label>
+
+    <div class="users" v-if="!sort">
       <div v-for="user in user_store.users" :key="user" class="user">
-        {{ user }}
+        <div>ID: {{ user.id }}</div>
+        <h3>{{ user.name }}</h3>
+        <p>{{ user.email }}</p>
+      </div>
+    </div>
+
+    <div class="users" v-else>
+      <div v-for="user in user_store.usersByName" :key="user" class="user">
+        <div>ID: {{ user.id }}</div>
+        <h3>{{ user.name }}</h3>
+        <p>{{ user.email }}</p>
       </div>
     </div>
   </main>
