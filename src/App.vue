@@ -22,6 +22,11 @@ const CreateUser = () => {
     email: '',
   }
 }
+
+const DeleteUser = id => {
+  user_store.delete(id)
+  alert("User Deleted with id: " + id)
+}
 </script>
 
 <template>
@@ -40,6 +45,7 @@ const CreateUser = () => {
         <div>ID: {{ user.id }}</div>
         <h3>{{ user.name }}</h3>
         <p>{{ user.email }}</p>
+        <button @click="DeleteUser(user.id)">Delete</button>
       </div>
     </div>
 
@@ -48,6 +54,7 @@ const CreateUser = () => {
         <div>ID: {{ user.id }}</div>
         <h3>{{ user.name }}</h3>
         <p>{{ user.email }}</p>
+        <button @click="DeleteUser(user.id)">Delete</button>
       </div>
     </div>
   </main>
