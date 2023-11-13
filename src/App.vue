@@ -15,7 +15,7 @@ const CreateUser = () => {
   if (!user_input.value.name || !user_input.value.email) {
     return alert('Please enter both name and email')
   }
-  user_store.createUser(user_input.value)
+  user_store.create(user_input.value)
 
   user_input.value = {
     name: '',
@@ -32,6 +32,12 @@ const CreateUser = () => {
       <input type="email" placeholder="e.g. hokage@ninja.com" v-model="user_input.email" />
       <input type="submit" value="Create user">
     </form>
+
+    <div class="users">
+      <div v-for="user in user_store.users" :key="user" class="user">
+        {{ user }}
+      </div>
+    </div>
   </main>
 </template>
 
