@@ -25,7 +25,14 @@ const CreateUser = () => {
 </script>
 
 <template>
-  Hello, World!
+  <main>
+    <h1>Team manager</h1>
+    <form @submit.prevent="CreateUser">
+      <input type="text" placeholder="e.g. Naruto Uzumaki" v-model="user_input.name" />
+      <input type="email" placeholder="e.g. hokage@ninja.com" v-model="user_input.email" />
+      <input type="submit" value="Create user">
+    </form>
+  </main>
 </template>
 
 <style>
